@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Splash Browser</string>
+    <string name="open_nav">Open NavDraw</string>
+    <string name="close_nav">Close NavDraw</string>
+    <string name="home">Home</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="library">Library</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>

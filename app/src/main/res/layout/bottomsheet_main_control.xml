@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alv.splash.browser.LinearCorner xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootBottomControlTab"
+    style="@style/Theme.SplashBrowser"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="4.6dp"
+    android:orientation="vertical">
+
+    <!-- Drag handle at the top -->
+    <View
+        android:paddingTop="4.5dp"
+        android:layout_width="65dp"
+        android:layout_height="3.4dp"
+        android:background="@color/lavender"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="9dp"
+        android:id="@+id/bottomSDHV_Add"
+        app:tint="@color/white"
+        android:backgroundTint="@color/lavender"/>
+
+    <!-- Address Bar Container -->
+    <include
+        layout="@layout/custom_addressbar" />
+
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ViewPager untuk Left dan Right -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpMainBottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+</alv.splash.browser.LinearCorner>

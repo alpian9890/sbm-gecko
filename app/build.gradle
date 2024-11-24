@@ -1,0 +1,74 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+ext {
+    geckoviewChannel = "nightly"
+    geckoviewVersion = "134.0.20241115093447"
+}
+
+android {
+    namespace 'alv.splash.browser'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "alv.splash.browser"
+        minSdk 21
+        targetSdk 35
+        versionCode 2
+        versionName "2.7|GeckoView"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Sertakan hanya ABI tertentu
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a" // Pilih ABI yang diperlukan
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Aktifkan R8 untuk optimasi
+            //shrinkResources true // Hilangkan resource yang tidak digunakan
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Stripping debug symbols dari library native
+            ndk {
+                debugSymbolLevel 'none' // Hapus simbol debug untuk file .so
+            }
+        }
+    }
+
+    //splits {
+      //  abi {
+        //    enable true
+            //reset()
+          //  include "armeabi-v7a", "arm64-v8a" // Bangun APK hanya untuk ABI tertentu
+      //      universalApk false // Jangan buat APK universal
+    //    }
+  //  }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation "org.mozilla.geckoview:geckoview-${geckoviewChannel}:${geckoviewVersion}"
+    implementation libs.legacy.support.v4
+    implementation libs.recyclerview
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
